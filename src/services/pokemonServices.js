@@ -2,9 +2,9 @@ import { unauthorized } from '../config/axios'
 
 const pokemonServices = {
 
-    getAllPokemons: async () => {
+    getAllPokemons: async (limit) => {
         try {
-            const response = await unauthorized.get('/pokemon?limit=20')
+            const response = await unauthorized.get(`/pokemon?limit=${limit}`)
 
             if (response.status != 200 && response.status != 201) throw new Error("Something went wrong!")
 
@@ -25,7 +25,6 @@ const pokemonServices = {
             return { success: false, error };
         }
     },
-    
 }
 
 export default pokemonServices
