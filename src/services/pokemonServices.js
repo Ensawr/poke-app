@@ -4,7 +4,7 @@ const pokemonServices = {
 
     getAllPokemons: async () => {
         try {
-            const response = await unauthorized.get('?limit=100')
+            const response = await unauthorized.get('/pokemon?limit=20')
 
             if (response.status != 200 && response.status != 201) throw new Error("Something went wrong!")
 
@@ -16,7 +16,7 @@ const pokemonServices = {
 
     getSpecificPokemon: async (data) => {
         try {
-            const response = await unauthorized.get(`/${data}`)
+            const response = await unauthorized.get(`/pokemon/${data}`)
 
             if (response.status != 200 && response.status != 201) throw new Error("Something went wrong!")
 
@@ -25,6 +25,7 @@ const pokemonServices = {
             return { success: false, error };
         }
     },
+    
 }
 
 export default pokemonServices
