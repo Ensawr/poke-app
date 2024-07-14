@@ -8,7 +8,7 @@ import {
 import Layout from './layout/Layout';
 import Homepage from './pages/Homepage';
 import PageNotFound from './pages/PageNotFound';
-
+import Pokemons from './pages/Pokemons'
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Layout />}>
               <Route index element={<Homepage />} />
+              <Route path="/pokemons" element={<Pokemons />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
       </Routes>
