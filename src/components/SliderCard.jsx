@@ -19,13 +19,13 @@ const SliderCard = ({props}) => {
     }, [])
 
     useEffect(() => {
-        console.log(pokemon)
+        // console.log(pokemon)
     }, [pokemon])
 
   return (
-        <div className='grid gap-8 py-4 text-center h-72'>
+        <div className='grid gap-8 py-4 text-center h-56'>
             <div>
-                <p className='capitalize font-bold'>{pokemon?.name}</p>
+                <p className='capitalize font-bold text-[#ffcb08]'>{pokemon?.name}</p>
             </div>
             <div className='h-32'>
                 <img className='mx-auto max-w-32 max-h-32' src={pokemon.sprites?.other.showdown.front_default} alt="" />

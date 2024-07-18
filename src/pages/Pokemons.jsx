@@ -43,7 +43,7 @@ const Pokemons = () => {
     return (
         <div>
                 <div>
-                    <div className='flex justify-center gap-4 mb-4 text-sm'>
+                    <div className='flex justify-center gap-4 my-4 text-sm'>
                         <button onClick={sortAlphabetical} className='p-2 px-4 bg-yellow-300 rounded-lg'>Sort {!sorted ? "A to Z" : "Z to A"}</button>
                         <button onClick={clearFilters} className='p-2 px-4 bg-yellow-300 rounded-lg'>Clear All Filters</button>
                     </div>
