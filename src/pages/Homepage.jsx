@@ -58,13 +58,13 @@ const Homepage = () => {
 
       useEffect(() => {
         getAllPokemons()
-    }, [])
+      }, [])
 
   return (
     <div>
       
       <div className='bg-[#79c9f9] h-40'>
-        <div className='flex items-center justify-center pt-20 font-bold text-[#ffcb08] text-4xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]'>
+        <div className='flex items-center justify-center pt-20 font-bold text-[#ffcb08] sm:text-4xl text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]'>
           <p>Welcome to my</p>
           <img className='max-w-32' src={Logo} alt="" />
           <p>app</p>
@@ -74,7 +74,7 @@ const Homepage = () => {
       <div className='parallax max-w-full'/>
 
       <Zoom>
-        <div className='grid lg:grid-cols-2 h-96 items-center'>
+        <div className='grid lg:grid-cols-2 h-96 items-center py-8'>
           <div className='text-center lg:mx-14 mx-2'>
             <p className='text-[#ffcb08] font-bold text-3xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)] pb-2'>
               Gotta Catch 'Em All!
@@ -82,12 +82,12 @@ const Homepage = () => {
             <p className='text-xl'>Welcome to our comprehensive Pokémon haven, where every aspect of the Pokémon universe unfolds before you. Discover Every Pokémon Type and Image in PokeApp.</p>
           </div>
           <div>
-            <img className='w-24 mx-auto' src={gridPokemon1} alt="" />
+            <img className='lg:w-24 w-18 mx-auto' src={gridPokemon1} alt="" />
           </div>
         </div>
       </Zoom>
       <Zoom>
-        <div className='grid bg-[#ffcb08] lg:grid-cols-2 h-96 items-center'>
+        <div className='grid bg-[#ffcb08] lg:grid-cols-2 h-96 items-center py-8'>
           <div className='text-center lg:order-last text-white lg:mx-14 mx-2'>
             <p className='font-bold text-[#79c9f9] text-3xl drop-shadow-[0_2.2px_1.2px_rgba(256,256,256,1)] pb-2'>
               Dive into Pokémon Types: A Comprehensive Guide.
@@ -95,20 +95,20 @@ const Homepage = () => {
             <p className='text-xl'> Whether you're a seasoned trainer aiming to refine your team composition or a newcomer eager to learn about the diverse Pokémon universe, our site provides the tools and resources you need to succeed.</p>
           </div>
           <div>
-            <img className='w-24 mx-auto' src={gridPokemon2} alt="" />
+            <img className='lg:w-24 w-18 mx-auto' src={gridPokemon2} alt="" />
           </div>
         </div>
       </Zoom>
 
       <Fade>
-        <div className='grid lg:grid-cols-3 items-center'>
+        <div className='lg:grid lg:grid-cols-3 items-center'>
           <div className='lg:col-span-2'>
               <Carousel autoPlay={true} autoPlaySpeed={2000} infinite={true} arrows={false} swipeable={true} responsive={responsive}>
               {
                   pokemons.map((pokemon)=>{
                       return(
                           <div>
-                          <SliderCard props={pokemon.name}/>
+                            <SliderCard props={pokemon.name}/>
                           </div>
                       )
                   })

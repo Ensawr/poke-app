@@ -42,17 +42,17 @@ const Pokemons = () => {
 
     return (
         <div>
-                <div>
-                    <div className='flex justify-center gap-4 my-4 text-sm'>
-                        <button onClick={sortAlphabetical} className='p-2 px-4 bg-yellow-300 rounded-lg'>Sort {!sorted ? "A to Z" : "Z to A"}</button>
-                        <button onClick={clearFilters} className='p-2 px-4 bg-yellow-300 rounded-lg'>Clear All Filters</button>
-                    </div>
-                    <div className='grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mx-4 gap-8'>
-                        {pokemons.map((pokemon) => (
-                            <PokemonCard key={pokemon.name} props={pokemon.name} />
-                        ))}
-                    </div>
+            <div>
+                <div className='flex justify-center gap-4 my-4 text-sm'>
+                    <button onClick={sortAlphabetical} className='p-2 px-4 bg-yellow-300 rounded-lg'>Sort {!sorted ? "A to Z" : "Z to A"}</button>
+                    <button onClick={clearFilters} className='p-2 px-4 bg-yellow-300 rounded-lg'>Clear All Filters</button>
                 </div>
+                <div className='grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 mx-4 gap-8'>
+                    {pokemons.map((pokemon) => (
+                        <PokemonCard key={pokemon.name} props={pokemon.name} />
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };
