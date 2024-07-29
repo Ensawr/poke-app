@@ -18,6 +18,9 @@ const PokemonCard = ({props}) => {
                 setPokemon(result?.data);
             }
         } catch (error) {}
+        finally {
+            setLoading(false);
+        }
     };
 
     const pickColorAccordingToType = (pokeType, location) => {
@@ -40,9 +43,6 @@ const PokemonCard = ({props}) => {
 
     useEffect(() => {
         getPokemonInfo()
-        setTimeout(() => {
-            setLoading(false);
-        }, 1500);
     }, [])
 
   return (
@@ -59,7 +59,7 @@ const PokemonCard = ({props}) => {
                     <p className='capitalize font-bold text-lg'>{pokemon?.name}</p>
                 </div>
                 <div className='h-32'>
-                    <img className='mx-auto max-w-32 max-h-32' src={pokemon.sprites?.other.dream_world.front_default} alt="" />
+                    <img className='mx-auto max-w-32 max-h-32' src={pokemon.sprites?.other.dream_world.front_default ? pokemon.sprites?.other.dream_world.front_default : pokemon.sprites?.front_default} alt="" />
                 </div>
                 <div>
                     {pokemon?.types?.map((type)=>{

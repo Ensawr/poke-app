@@ -6,6 +6,6 @@ I will continue to develop the project using the data I have from the API.
 
 ## Features to be added
 
-- Pagination
+- Pagination ✅
 - Filters (based on the Pokémon type)
 - Simple pop-ups with additional information about the Pokémon.

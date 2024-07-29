@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import pokemonServices from '../services/pokemonServices';
 import PokemonCard from '../components/PokemonCard';
+import Pagination from '../components/Pagination';
 
 const Pokemons = () => {
     const [pokemons, setPokemons] = useState([]);
     const [sorted, setSorted] = useState(false);
+    const [currentPage,setCurrentPage] = useState(1);
+    const [pokemonPerPage,setPokemonPerPage] = useState(20);
 
     const getAllPokemons = async () => {
         try {
-            const result = await pokemonServices.getAllPokemons(200);
+            // API has 1302 pokemons
+            const result = await pokemonServices.getAllPokemons(1302);
             if (result?.success) {
                 console.log(result.data)
                 setPokemons(result?.data);
@@ -40,6 +44,10 @@ const Pokemons = () => {
         getAllPokemons();
     }, []);
 
+    const lastPokemonIndex = currentPage * pokemonPerPage;
+    const firstPokemonIndex = lastPokemonIndex - pokemonPerPage;
+    const paginatedPokemons = pokemons.slice(firstPokemonIndex,lastPokemonIndex)
+
     return (
         <div>
             <div>
@@ -47,11 +55,12 @@ const Pokemons = () => {
                     <button onClick={sortAlphabetical} className='p-2 px-4 bg-yellow-300 rounded-lg'>Sort {!sorted ? "A to Z" : "Z to A"}</button>
                     <button onClick={clearFilters} className='p-2 px-4 bg-yellow-300 rounded-lg'>Clear All Filters</button>
                 </div>
-                <div className='grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 mx-4 gap-8'>
-                    {pokemons.map((pokemon) => (
+                <div className='grid 2xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-2 mx-4 gap-8'>
+                    {paginatedPokemons.map((pokemon) => (
                         <PokemonCard key={pokemon.name} props={pokemon.name} />
                     ))}
                 </div>
+                <Pagination totalPokemons={pokemons.length} pokemonPerPage={pokemonPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
             </div>
         </div>
     );
